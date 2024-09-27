@@ -1,0 +1,106 @@
+[
+  {
+    "ContainingType": "SERVER_SIDE.Controllers.MembersController",
+    "Method": "GetAllMembers",
+    "RelativePath": "api/Members",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SERVER_SIDE.Controllers.MembersController",
+    "Method": "DeleteMemberFromChat",
+    "RelativePath": "api/Members/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SERVER_SIDE.Controllers.MembersController",
+    "Method": "AddMemberToChat",
+    "RelativePath": "api/Members/addMember",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "member",
+        "Type": "SERVER_SIDE.Models.Member",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SERVER_SIDE.Controllers.MembersController",
+    "Method": "DeleteAllMembers",
+    "RelativePath": "api/Members/allMembers",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SERVER_SIDE.Controllers.MessagesController",
+    "Method": "GetAllMesages",
+    "RelativePath": "api/Messages",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SERVER_SIDE.Controllers.MessagesController",
+    "Method": "DeleteMessageFromChat",
+    "RelativePath": "api/Messages/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SERVER_SIDE.Controllers.MessagesController",
+    "Method": "AddMessageToChat",
+    "RelativePath": "api/Messages/addMessage",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "message",
+        "Type": "SERVER_SIDE.Models.Message",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SERVER_SIDE.Controllers.MessagesController",
+    "Method": "DeleteAllMessages",
+    "RelativePath": "api/Messages/allMessages",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

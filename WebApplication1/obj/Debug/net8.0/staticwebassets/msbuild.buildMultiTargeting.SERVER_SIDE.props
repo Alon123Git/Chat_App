@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SERVER_SIDE.props" />
+</Project>
