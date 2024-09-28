@@ -6,6 +6,10 @@ namespace CHAT_APP_CLIENT.Services
 {
     public class ApiServiceMembers
     {
+        /// <summary>
+        /// Reset all fields login of all memebrs to false (0 in data-base) after the app is close
+        /// </summary>
+
         private readonly HttpClient _httpClient;
 
         public ApiServiceMembers()
@@ -33,6 +37,33 @@ namespace CHAT_APP_CLIENT.Services
             response.EnsureSuccessStatusCode();
             return response;
         }
+
+        // Update login field of member to true (for connected memebr)
+        public async Task<Member?> UpdateLoginFieldToTrue(int id, Member member)
+        {
+            var response = await _httpClient.PutAsJsonAsync($"api/Members/updateLoginFieldForConnectedMemebr/{id}", member);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadAsAsync<Member?>();
+            }
+
+            return null; // Return null if the update fails
+        }
+
+        // Update login field of memebr to false (for disconnected memebr)
+        public async Task<Member?> UpdateLoginFieldToFalse(int id, Member member)
+        {
+            var response = await _httpClient.PutAsJsonAsync($"api/Members/updateLoginFieldForDisconnectedonnectedMemebr/{id}", member);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadAsAsync<Member?>();
+            }
+
+            return null; // Return null if the update fails
+        }
+
 
         // DELETE 1 MEMBER
         public async Task<bool> DeleteMemberFromChatAsync(int id)

@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using SERVER_SIDE.Models;
+using System.Windows.Input;
 
 namespace CHAT_APP_CLIENT.Extensions
 {
@@ -7,12 +8,20 @@ namespace CHAT_APP_CLIENT.Extensions
     {
         private readonly Action _execute;
         private readonly Func<bool> _canExecute;
+        private Action<Member> onClick_JoinConnectedMemberChat; // Action variable to handle send Member argument to the OnClick methods in the view moedlS
+
         public event EventHandler? CanExecuteChanged;
 
         public Commands(Action execute, Func<bool> canExecute = null)
         {
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;
+        }
+
+        // ctor to handle send Member argument to the OnClick methods in the view moedl
+        public Commands(Action<Member> onClick_JoinConnectedMemberChat)
+        {
+            this.onClick_JoinConnectedMemberChat = onClick_JoinConnectedMemberChat;
         }
 
         public bool CanExecute(object parameter)

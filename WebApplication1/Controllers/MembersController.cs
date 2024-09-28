@@ -40,6 +40,63 @@ namespace SERVER_SIDE.Controllers
             return CreatedAtAction(nameof(GetAllMembers), new { id = newMember._id }, newMember);
         }
 
+        [HttpPut("updateLoginFieldForConnectedMemebr/{id}")]
+        public async Task<IActionResult> UpdateLoginFieldForConnectedMember(int id, [FromBody] Member member)
+        {
+            if (id != member._id)
+            {
+                return BadRequest("Member ID mismatch");
+            }
+
+            var updatedMember = await _memberService.UpdateMemberLoginFieldConnectedMember(member);
+
+            if (updatedMember != null)
+            {
+                return Ok(updatedMember); // Return the updated member
+            }
+
+            return NotFound(); // Return 404 if the member is not found
+        }
+
+        [HttpPut("updateLoginFieldForDisconnectedonnectedMemebr/{id}")]
+        public async Task<IActionResult> UpdateLoginFieldForDisconnectedMember(int id, [FromBody] Member member)
+        {
+            if (id != member._id)
+            {
+                return BadRequest("Member ID mismatch");
+            }
+
+            var updatedMember = await _memberService.UpdateMemberLoginFieldDisconnectedMember(member);
+
+            if (updatedMember != null)
+            {
+                return Ok(updatedMember); // Return the updated member
+            }
+
+            return NotFound(); // Return 404 if the member is not found
+        }
+
+        // Reset all fields login of all memebrs to false
+        [HttpPut("resetAllLogins")]
+        public async Task<IActionResult> ResetAllMembersLogin()
+        {
+            var allMembers = await _memberService.GetAllMembers();
+
+            if (allMembers == null)
+            {
+                return NotFound("No members found.");
+            }
+
+            foreach (var member in allMembers)
+            {
+                member._isLogin = false; // Reset login status to false
+                await _memberService.resetAllLoginFields(member); // Update each member in the database
+            }
+
+            return Ok("All members login status has been reset.");
+        }
+
+
         // DELETE action
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMemberFromChat(int id)

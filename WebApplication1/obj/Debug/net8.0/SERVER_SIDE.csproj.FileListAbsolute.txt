@@ -148,3 +148,4 @@ C:\Users\Alon\Desktop\C#\WPF\CHAT_APP_INTERACTIVE\WebApplication1\obj\Debug\net8
 C:\Users\Alon\Desktop\C#\WPF\CHAT_APP_INTERACTIVE\WebApplication1\obj\Debug\net8.0\SERVER_SIDE.pdb
 C:\Users\Alon\Desktop\C#\WPF\CHAT_APP_INTERACTIVE\WebApplication1\obj\Debug\net8.0\SERVER_SIDE.genruntimeconfig.cache
 C:\Users\Alon\Desktop\C#\WPF\CHAT_APP_INTERACTIVE\WebApplication1\obj\Debug\net8.0\ref\SERVER_SIDE.dll
+C:\Users\Alon\Desktop\C#\WPF\CHAT_APP_INTERACTIVE\WebApplication1\obj\Debug\net8.0\SERVER_SIDE.sourcelink.json

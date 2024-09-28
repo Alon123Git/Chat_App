@@ -16,7 +16,5 @@ namespace CHAT_APP_CLIENT.View_Models
             _message = message;
             _chatLog = chatLog;
         }
-
-
     }
 }

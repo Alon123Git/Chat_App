@@ -50,6 +50,5 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
-//app.MapHub<ChatHub>("/chathub"); // Map the SignalR hub
 app.MapControllers(); // Map API controllers
 app.Run();

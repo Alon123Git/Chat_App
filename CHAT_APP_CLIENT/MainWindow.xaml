@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CHAT_APP_CLIENT.Extensions"
+        xmlns:local="clr-namespace:CHAT_APP_CLIENT.Extensions" 
+        xmlns:view_models="clr-namespace:CHAT_APP_CLIENT.View_Models" d:DataContext="{d:DesignInstance Type=view_models:ViewModelBase}"
         mc:Ignorable="d"
         Title="MainWindow" Height="1200" Width="1500">
 
@@ -68,9 +69,11 @@
                 <Button Grid.Column="2" Content="Clear members"
                     Command="{Binding ClearAllMembersCommand}" Background="LightPink" />
                 <Button Name="btnJoinChat" Grid.Column="0" Command="{Binding JoinChatCommand}" 
-                    HorizontalAlignment="Left" FontSize="10" Content="JOIN THE CHAT" Background="LightPink" />
+                    HorizontalAlignment="Left" FontSize="10" Content="JOIN THE CHAT"
+                        Background="LightPink" />
                 <Button Grid.Column="4" Command="{Binding LeaveChatCommand}" 
-                    HorizontalAlignment="Right" FontSize="10" Content="LEAVE THE CHAT" Background="LightPink" />
+                    HorizontalAlignment="Right" FontSize="10" Content="LEAVE THE CHAT"
+                        Background="LightPink" />
             </Grid>
         </StackPanel>
 
@@ -105,27 +108,34 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
 
-                <Button Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left"
-                Content="Connect"
-                Background="LightCoral" FontSize="10" />
+                <Button Name="btnConnect" Grid.Row="3" HorizontalAlignment="Left"
+                Content="Connect" Command="{Binding connectMemberCommand}"
+                Background="LightCoral" FontSize="10" Height="26" VerticalAlignment="Bottom" />
 
-                <Button Grid.Row="3" Background="LightCoral"
-                        Content="Disconnect"
+                <Button Name="btnDisconnect" Grid.Row="3" Background="LightCoral"
+                        Content="Disconnect" Command="{Binding disconnectMemberCommand}"
                         HorizontalAlignment="Right" FontSize="10" />
             </Grid>
 
-            <TextBlock Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="Login" FontSize="30" />
+            <TextBlock Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center"
+                       Text="Login" FontSize="30" />
             <TextBlock Grid.Row="1" Grid.ColumnSpan="6" HorizontalAlignment="Center"
                        VerticalAlignment="Bottom"
-                       Text="Present in the chat" FontSize="20" />
+                       Text="Members connected to the chat" FontSize="20" />
             <ScrollViewer Grid.Row="2" Grid.ColumnSpan="6" Grid.RowSpan="7">
-                <TextBlock Text="HERE WILL BE THE MEMEBR THAT ARE NOW PRESENT IN THE CHAT"
-                           VerticalAlignment="Center" />
+                <TextBlock Text="{Binding DisplayTextConnectedMember}" VerticalAlignment="Center"
+                           FontSize="20"/>
             </ScrollViewer>
 
             <TextBox Name="txtMemberLogin" Grid.ColumnSpan="7" Background="LightGray" 
-                     VerticalAlignment="Center" FontSize="15"></TextBox>
-            
+                     VerticalAlignment="Center" FontSize="15"
+                     Text="{Binding TextBoxJoinConnectedOrDissconnectedMemberChat,
+                UpdateSourceTrigger=PropertyChanged}" TextChanged="txtMemberLogin_TextChanged">
+                <TextBox.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding connectMemberCommand}" />
+                    <KeyBinding Key="Delete" Command="{Binding disconnectMemberCommand}" />
+                </TextBox.InputBindings>
+            </TextBox>
         </Grid>
 
         <!--Grid for performing the Chat header-->
@@ -163,14 +173,19 @@
                        VerticalAlignment="Center" HorizontalAlignment="Left" 
                        Text="Enter writer name:" 
                        FontSize="15"/>
-            <TextBox Grid.Row="2" Grid.Column="2"
+            <TextBox Name="txtMemberName" Grid.Row="2" Grid.Column="2"
                      Grid.ColumnSpan="2" Background="LightCyan"
-                     FontSize="15" />
-
+                     FontSize="15"
+                     Text="{Binding TextBoxMemberName, UpdateSourceTrigger=PropertyChanged}">
+                <TextBox.InputBindings>
+                    <KeyBinding Key="Enter" Command="{Binding SendMessageCommand}" />
+                </TextBox.InputBindings>
+            </TextBox>
         </Grid>
-        
+
         <!--Send message action-->
-        <ScrollViewer Grid.Column="2" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="4" Background="LightCyan">
+        <ScrollViewer Grid.Column="2" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="4"
+                      Background="LightCyan">
             <TextBlock Text="{Binding DisplayTextMessage}" FontSize="20" />
         </ScrollViewer>
 
@@ -188,15 +203,19 @@
         </TextBox>
 
         <!--Members header-->
-        <TextBlock Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="Members in the chat" FontSize="20" />
+        <TextBlock Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                   Text="Members in the chat" FontSize="20" />
 
-        <Button Name="btnMessage" Command="{Binding SendMessageCommand}" Grid.Column="3" Grid.Row="4" Background="LightBlue" Content="SEND" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+        <Button Name="btnMessage" Command="{Binding SendMessageCommand}"
+                Grid.Column="3" Grid.Row="4" Background="LightBlue"
+                Content="SEND" FontSize="20" VerticalAlignment="Bottom"
+                HorizontalAlignment="Right" />
 
-        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="IN THE CHAT" FontSize="30" />
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="IN THE CHAT"
+                   FontSize="30" />
 
-        <!-- New ListBox for SingleItemCollection -->
-
-        <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="2" Background="LightGreen">
+        <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="2"
+                      Background="LightGreen">
             <TextBlock Text="{Binding DisplayTextJoinChat}" FontSize="20" />
         </ScrollViewer>
     </Grid>
