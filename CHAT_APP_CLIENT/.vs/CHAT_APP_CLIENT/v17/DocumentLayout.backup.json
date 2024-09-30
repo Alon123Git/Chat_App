@@ -3,39 +3,47 @@
   "WorkspaceRootPath": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\chat_app_client\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\chat_app_client\\view models\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|solutionrelative:view models\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BF040BC-91D3-46FE-8930-6FB4A8B3C48F}|..\\WebApplication1\\SERVER_SIDE.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BF040BC-91D3-46FE-8930-6FB4A8B3C48F}|..\\WebApplication1\\SERVER_SIDE.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\webapplication1\\signalrhandle_hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BF040BC-91D3-46FE-8930-6FB4A8B3C48F}|..\\WebApplication1\\SERVER_SIDE.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\webapplication1\\services\\messagesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BF040BC-91D3-46FE-8930-6FB4A8B3C48F}|..\\WebApplication1\\SERVER_SIDE.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\webapplication1\\services\\membersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\chat_app_client\\view models\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|solutionrelative:view models\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3BF040BC-91D3-46FE-8930-6FB4A8B3C48F}|..\\WebApplication1\\SERVER_SIDE.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\webapplication1\\models\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BF040BC-91D3-46FE-8930-6FB4A8B3C48F}|..\\WebApplication1\\SERVER_SIDE.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\webapplication1\\models\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BF040BC-91D3-46FE-8930-6FB4A8B3C48F}|..\\WebApplication1\\SERVER_SIDE.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\webapplication1\\dbcontext\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BF040BC-91D3-46FE-8930-6FB4A8B3C48F}|..\\WebApplication1\\SERVER_SIDE.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\webapplication1\\controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BF040BC-91D3-46FE-8930-6FB4A8B3C48F}|..\\WebApplication1\\SERVER_SIDE.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\webapplication1\\controllers\\memberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\chat_app_client\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\chat_app_client\\extentions\\commands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|solutionrelative:extentions\\commands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BF040BC-91D3-46FE-8930-6FB4A8B3C48F}|..\\WebApplication1\\SERVER_SIDE.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\webapplication1\\models\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\chat_app_client\\view models\\viewmodel_memberlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|solutionrelative:view models\\viewmodel_memberlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BF040BC-91D3-46FE-8930-6FB4A8B3C48F}|..\\WebApplication1\\SERVER_SIDE.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\webapplication1\\models\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\chat_app_client\\services\\signalrservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|solutionrelative:services\\signalrservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BF040BC-91D3-46FE-8930-6FB4A8B3C48F}|..\\WebApplication1\\SERVER_SIDE.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\webapplication1\\signalrhandle_hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BF040BC-91D3-46FE-8930-6FB4A8B3C48F}|..\\WebApplication1\\SERVER_SIDE.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\chat_app_client\\extentions\\custommultivalueconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|solutionrelative:extentions\\custommultivalueconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\chat_app_client\\services\\apiservicemembers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,8 +54,19 @@
       "RelativeMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|solutionrelative:services\\apiservicemessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\chat_app_client\\extentions\\custommultivalueconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|solutionrelative:extentions\\custommultivalueconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\chat_app_client\\services\\signalrservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|solutionrelative:services\\signalrservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|c:\\users\\alon\\desktop\\c#\\wpf\\chat_app_interactive\\chat_app_client\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EE9D840E-D6DD-4DF8-9AE0-1E7010CD78A2}|CHAT_APP_CLIENT.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Alon\\AppData\\Local\\Temp\\.vsdbgsrc\\fb15084c48174bff3023217d1ad58e803e1e4322708722f333707ce4bd465108\\ItemCollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\Extentions\\RichTextBoxBehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Extentions\\RichTextBoxBehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -56,45 +75,111 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 801,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 559,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\MainWindow.xaml",
-              "RelativeToolTip": "MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-27T17:16:42.398Z",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Program.cs",
+              "RelativeDocumentMoniker": "..\\WebApplication1\\Program.cs",
+              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Program.cs",
+              "RelativeToolTip": "..\\WebApplication1\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T19:59:40.987Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "ChatHub.cs",
+              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\SignalRHandle_Hubs\\ChatHub.cs",
+              "RelativeDocumentMoniker": "..\\WebApplication1\\SignalRHandle_Hubs\\ChatHub.cs",
+              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\SignalRHandle_Hubs\\ChatHub.cs",
+              "RelativeToolTip": "..\\WebApplication1\\SignalRHandle_Hubs\\ChatHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T19:59:36.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MessagesService.cs",
+              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Services\\MessagesService.cs",
+              "RelativeDocumentMoniker": "..\\WebApplication1\\Services\\MessagesService.cs",
+              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Services\\MessagesService.cs",
+              "RelativeToolTip": "..\\WebApplication1\\Services\\MessagesService.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T19:59:34.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "MembersService.cs",
               "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Services\\MembersService.cs",
               "RelativeDocumentMoniker": "..\\WebApplication1\\Services\\MembersService.cs",
               "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Services\\MembersService.cs",
               "RelativeToolTip": "..\\WebApplication1\\Services\\MembersService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T16:54:24.516Z",
+              "WhenOpened": "2024-09-30T19:59:30.836Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ViewModel_MemberLogin.cs",
-              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\View Models\\ViewModel_MemberLogin.cs",
-              "RelativeDocumentMoniker": "View Models\\ViewModel_MemberLogin.cs",
-              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\View Models\\ViewModel_MemberLogin.cs",
-              "RelativeToolTip": "View Models\\ViewModel_MemberLogin.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Title": "Message.cs",
+              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Models\\Message.cs",
+              "RelativeDocumentMoniker": "..\\WebApplication1\\Models\\Message.cs",
+              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Models\\Message.cs",
+              "RelativeToolTip": "..\\WebApplication1\\Models\\Message.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA6wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T16:38:37.394Z",
+              "WhenOpened": "2024-09-30T19:59:29.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Member.cs",
+              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Models\\Member.cs",
+              "RelativeDocumentMoniker": "..\\WebApplication1\\Models\\Member.cs",
+              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Models\\Member.cs",
+              "RelativeToolTip": "..\\WebApplication1\\Models\\Member.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAzwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T19:59:27.137Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DataBaseContext.cs",
+              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\DBContext\\DataBaseContext.cs",
+              "RelativeDocumentMoniker": "..\\WebApplication1\\DBContext\\DataBaseContext.cs",
+              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\DBContext\\DataBaseContext.cs",
+              "RelativeToolTip": "..\\WebApplication1\\DBContext\\DataBaseContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T19:59:24.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MessagesController.cs",
+              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Controllers\\MessagesController.cs",
+              "RelativeDocumentMoniker": "..\\WebApplication1\\Controllers\\MessagesController.cs",
+              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Controllers\\MessagesController.cs",
+              "RelativeToolTip": "..\\WebApplication1\\Controllers\\MessagesController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAiwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T19:59:21.325Z",
               "EditorCaption": ""
             },
             {
@@ -115,120 +200,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Program.cs",
-              "RelativeDocumentMoniker": "..\\WebApplication1\\Program.cs",
-              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Program.cs",
-              "RelativeToolTip": "..\\WebApplication1\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T16:08:35.111Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ApiServiceMembers.cs",
-              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\Services\\ApiServiceMembers.cs",
-              "RelativeDocumentMoniker": "Services\\ApiServiceMembers.cs",
-              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\Services\\ApiServiceMembers.cs",
-              "RelativeToolTip": "Services\\ApiServiceMembers.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB0AAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T16:02:32.928Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "SignalRService.cs",
-              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\Services\\SignalRService.cs",
-              "RelativeDocumentMoniker": "Services\\SignalRService.cs",
-              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\Services\\SignalRService.cs",
-              "RelativeToolTip": "Services\\SignalRService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T16:01:09.779Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ChatHub.cs",
-              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\SignalRHandle_Hubs\\ChatHub.cs",
-              "RelativeDocumentMoniker": "..\\WebApplication1\\SignalRHandle_Hubs\\ChatHub.cs",
-              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\SignalRHandle_Hubs\\ChatHub.cs",
-              "RelativeToolTip": "..\\WebApplication1\\SignalRHandle_Hubs\\ChatHub.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T16:00:56.206Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Message.cs",
-              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Models\\Message.cs",
-              "RelativeDocumentMoniker": "..\\WebApplication1\\Models\\Message.cs",
-              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Models\\Message.cs",
-              "RelativeToolTip": "..\\WebApplication1\\Models\\Message.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T15:57:10.682Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ViewModelBase.cs",
-              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\View Models\\ViewModelBase.cs",
-              "RelativeDocumentMoniker": "View Models\\ViewModelBase.cs",
-              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\View Models\\ViewModelBase.cs",
-              "RelativeToolTip": "View Models\\ViewModelBase.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAMwGwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T15:50:02.33Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Member.cs",
-              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Models\\Member.cs",
-              "RelativeDocumentMoniker": "..\\WebApplication1\\Models\\Member.cs",
-              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Models\\Member.cs",
-              "RelativeToolTip": "..\\WebApplication1\\Models\\Member.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T15:49:59.923Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "ApiServiceMessages.cs",
               "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\Services\\ApiServiceMessages.cs",
               "RelativeDocumentMoniker": "Services\\ApiServiceMessages.cs",
               "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\Services\\ApiServiceMessages.cs",
               "RelativeToolTip": "Services\\ApiServiceMessages.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T16:01:14.638Z",
+              "WhenOpened": "2024-09-30T19:59:00.7Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Commands.cs",
-              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\Extentions\\Commands.cs",
-              "RelativeDocumentMoniker": "Extentions\\Commands.cs",
-              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\Extentions\\Commands.cs",
-              "RelativeToolTip": "Extentions\\Commands.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAiwB4AAAA/AAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "ViewModelBase.cs",
+              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\View Models\\ViewModelBase.cs",
+              "RelativeDocumentMoniker": "View Models\\ViewModelBase.cs",
+              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\View Models\\ViewModelBase.cs",
+              "RelativeToolTip": "View Models\\ViewModelBase.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowBcAAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T15:57:23.778Z",
+              "WhenOpened": "2024-09-30T13:33:29.993Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SignalRService.cs",
+              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\Services\\SignalRService.cs",
+              "RelativeDocumentMoniker": "Services\\SignalRService.cs",
+              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\Services\\SignalRService.cs",
+              "RelativeToolTip": "Services\\SignalRService.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T14:21:18.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "RichTextBoxBehavior.cs",
+              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\Extentions\\RichTextBoxBehavior.cs",
+              "RelativeDocumentMoniker": "Extentions\\RichTextBoxBehavior.cs",
+              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\Extentions\\RichTextBoxBehavior.cs",
+              "RelativeToolTip": "Extentions\\RichTextBoxBehavior.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T13:58:23.79Z"
             },
             {
               "$type": "Document",
@@ -238,14 +257,92 @@
               "RelativeDocumentMoniker": "Extentions\\CustomMultiValueConverter.cs",
               "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\Extentions\\CustomMultiValueConverter.cs",
               "RelativeToolTip": "Extentions\\CustomMultiValueConverter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T15:57:24.233Z"
+              "WhenOpened": "2024-09-30T13:57:53.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Commands.cs",
+              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\Extentions\\Commands.cs",
+              "RelativeDocumentMoniker": "Extentions\\Commands.cs",
+              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\Extentions\\Commands.cs",
+              "RelativeToolTip": "Extentions\\Commands.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAIwDsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T13:57:18.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ApiServiceMembers.cs",
+              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\Services\\ApiServiceMembers.cs",
+              "RelativeDocumentMoniker": "Services\\ApiServiceMembers.cs",
+              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\Services\\ApiServiceMembers.cs",
+              "RelativeToolTip": "Services\\ApiServiceMembers.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAqwB0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T13:57:10.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAcwFwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T13:33:11.619Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MembersController.cs",
+              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Controllers\\MembersController.cs",
+              "RelativeDocumentMoniker": "..\\WebApplication1\\Controllers\\MembersController.cs",
+              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\WebApplication1\\Controllers\\MembersController.cs",
+              "RelativeToolTip": "..\\WebApplication1\\Controllers\\MembersController.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T19:19:43.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Alon\\Desktop\\C#\\WPF\\CHAT_APP_INTERACTIVE\\CHAT_APP_CLIENT\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-30T18:57:52.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ItemCollection.cs",
+              "DocumentMoniker": "C:\\Users\\Alon\\AppData\\Local\\Temp\\.vsdbgsrc\\fb15084c48174bff3023217d1ad58e803e1e4322708722f333707ce4bd465108\\ItemCollection.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\fb15084c48174bff3023217d1ad58e803e1e4322708722f333707ce4bd465108\\ItemCollection.cs",
+              "ToolTip": "C:\\Users\\Alon\\AppData\\Local\\Temp\\.vsdbgsrc\\fb15084c48174bff3023217d1ad58e803e1e4322708722f333707ce4bd465108\\ItemCollection.cs [Read Only]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\fb15084c48174bff3023217d1ad58e803e1e4322708722f333707ce4bd465108\\ItemCollection.cs [Read Only]",
+              "ViewState": "AgIAAIoFAAAAAAAAAAAwwJkFAAADAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T19:50:34.091Z",
+              "EditorCaption": " [Read Only]"
             }
           ]
         },
         {
-          "DockedWidth": 701,
+          "DockedWidth": 1043,
           "SelectedChildIndex": -1,
           "Children": [
             {

@@ -16,12 +16,8 @@ builder.Services.AddScoped<MessagesService>();
         
 builder.Services.AddSignalR(); // Register SignalR services
 
-
 builder.Services.AddDbContext<DataBaseContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("AppConnection"))); // SQL connection pipeline   
-//builder.Services.AddSingleton<IDatabaseService, DatabaseServiceImpl>();
-
-
 
 // Add cors
 builder.Services.AddCors(options =>
@@ -36,7 +32,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-app.MapHub<ChatHub>("/Chat"); // Configure SignalR endpoint (   SignalR להגדיר את נקודת הקצה של)
+app.MapHub<ChatHub>("/Chat"); // Configure SignalR endpoint (SignalR להגדיר את נקודת הקצה של)
 
 app.UseCors("AllowAllOrigins"); // Apply the CORS policy
 
@@ -50,6 +46,5 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
-//app.MapHub<ChatHub>("/chathub"); // Map the SignalR hub
 app.MapControllers(); // Map API controllers
 app.Run();

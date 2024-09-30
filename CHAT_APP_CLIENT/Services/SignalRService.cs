@@ -5,8 +5,8 @@ namespace CHAT_APP_CLIENT.Services
 {
     public class SignalRService
     {
-        private readonly HubConnection _connection;
-        private readonly string url = "https://localhost:5021/chathub";
+        private readonly HubConnection _connection; // Dependency injection for connect the SignalR from the server side
+        private readonly string url = "https://localhost:5021/chathub"; // URL of the server side
 
         public SignalRService()
         {

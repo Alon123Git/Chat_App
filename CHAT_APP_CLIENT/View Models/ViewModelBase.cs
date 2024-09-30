@@ -1,14 +1,11 @@
-﻿using Azure.Messaging;
-using CHAT_APP_CLIENT.Extensions;
+﻿using CHAT_APP_CLIENT.Extensions;
 using CHAT_APP_CLIENT.Services;
 using SERVER_SIDE.Models;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Net.Http;
-using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace CHAT_APP_CLIENT.View_Models
 {
@@ -18,13 +15,19 @@ namespace CHAT_APP_CLIENT.View_Models
         private readonly ApiServiceMessages _apiServiceMessages;
         public event PropertyChangedEventHandler? PropertyChanged;
         private readonly SignalRService _signalRService;
-
+        
         // Commands for different button actions
-        public ICommand SendMessageCommand { get; private set; } // Send message command
-        public ICommand JoinChatCommand { get; private set; } // Join chat command
-        public ICommand LeaveChatCommand { get; private set; } // Left the chat command
-        public ICommand ClearAllMembersCommand { get; private set; } // Clear all members command
-        public ICommand ClearChatCommand { get; private set; } // Clear the caht command
+        public ICommand sendMessageCommand { get; private set; } // Send message command
+        public ICommand joinChatCommand { get; private set; } // Join chat command
+        public ICommand leaveChatCommand { get; private set; } // Left the chat command
+        public ICommand clearAllMembersCommand { get; private set; } // Clear all members command
+        public ICommand clearChatCommand { get; private set; } // Clear the caht command
+        public ICommand connectMemberCommand { get; private set; } // Join connected memebr to the chat command
+        public ICommand disconnectMemberCommand { get; private set; } // Join connected memebr to the chat command
+        public ICommand genderMaleMemberCommand { get; private set; } // Memeber gender male command
+        public ICommand genderFemaleMemebrCommand { get; private set; } // Member gender female command
+        public ICommand agesCommand { get; private set; } // Member ages list command
+        public ICommand selectedAgeCommand { get; private set; } // Member selected age command
 
         // strings for write and display the text in the UI
         private string _textBoxMessage = string.Empty;
@@ -33,52 +36,66 @@ namespace CHAT_APP_CLIENT.View_Models
         private string _deleteText = string.Empty;
         private string _errorMessage = string.Empty;
         private string _memberLogin = string.Empty;
-        private string _chatLog = string.Empty; 
+        private string _chatLog = string.Empty;
+        private string _txtMemberName = string.Empty;
+        private string _txtJoinConectedOrDissconnectedMemberChat = string.Empty;
+        private bool _isMaleButtonEnabled = false;
+        private bool _isFemaleButtonEnabled = false;
+        private string _selectedGender = string.Empty;
+        private int _selectedAge = 0;
 
         // collections of strings for collect all the messages and users that are in the chat
         private ObservableCollection<string> _linesMessage; // Collection that will contain all the messages in the chat
         private ObservableCollection<string> _linesJoinChat; // Collection that will contain all the names of the users who joined the chat
+        private ObservableCollection<int> _agesList;
 
         private ObservableCollection<Member> _chatMembers = new ObservableCollection<Member>(); // collecation for collect all the memeber that availiable in the chat
+        private ObservableCollection<Member> _connectedMembers = new ObservableCollection<Member>();
         private ObservableCollection<Message> _chatMessages = new ObservableCollection<Message>(); // collecation for collect all the messages that availiable in the chat
 
-        private const int maxCharsPerLine = 30; // define the maximum letters for a memeber name in the chat
+        private const int maxCharsPerLine = 100; // define the maximum letters for a memeber name in the chat
 
         public ViewModelBase()
         {
+            IsMaleButtonEnabled = false; // Set the genders buttons to be not ebaled
+            IsFemaleButtonEnabled = false; // Set the genders buttons to be not ebaled
+
             _signalRService = new SignalRService();
-            SendMessageCommand = new Commands(async () => await SendMessageAsync());
+            sendMessageCommand = new Commands(async () => await SendMessageAsync());
 
             // Subscribe to incoming messages from the server
             _signalRService.OnMessageReceived((user, message) =>
             {
-                // Update the chat log when a new message is received
-                ChatLog += $"{user}: {message._content}\n";
+                ChatLog += $"{user}: {message._content}\n"; // Update the chat log when a new message is received
             });
 
-            // Start the SignalR connection
-            StartSignalRConnectionAsync();
-
-            // Initialize commands with their corresponding methods
-            SendMessageCommand = new Commands(OnClick_SendMessage); // Initial send message command
-            JoinChatCommand = new Commands(OnClick_JoinNewMemberInChat); // Initial join caht command
-            LeaveChatCommand = new Commands(OnClick_LeaveChat); // Initial left the chat command
-            ClearAllMembersCommand = new Commands(OnClick_ClearMembers); // Initial clear memebers command
-            ClearChatCommand = new Commands(OnClick_ClearMessagesChat); // Initial clear chat command
+            _ = StartSignalRConnectionAsync(); // Start the SignalR connection. _ - to avoid warning
 
             // Initial collections
             _linesMessage = new ObservableCollection<string>(); // Initial the collection that include all the msessages in the chat
             _linesJoinChat = new ObservableCollection<string>(); // Initial the collection that include all the users who joined the chat
-           
+            _agesList = new ObservableCollection<int>();
+
             _chatMembers = new ObservableCollection<Member>(); // Initialize the ObservableCollection for chat members
+            _connectedMembers = new ObservableCollection<Member>();
             _chatMessages = new ObservableCollection<Message>(); // Initialize the ObservableCollection for chat messages
 
             _apiServiceMembers = new ApiServiceMembers();
             _apiServiceMessages = new ApiServiceMessages();
-            InitializeCommands();
+            InitializeCommands(); // Initialize commands with their corresponding methods
+            InitialAgesList(); // Initial the ages list
 
             LoadMembers(); // Load members when the ViewModel is instantiated
             LoadMessages(); // Load messages when the ViewModel is instantiated
+        }
+        private void InitialAgesList()
+        {
+            AgesList = new ObservableCollection<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
+            11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+            30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48,
+            49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67,
+            68, 89, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86,
+            87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100};  // Example ages
         }
 
         // Start SignalR connection asynchronously
@@ -98,19 +115,15 @@ namespace CHAT_APP_CLIENT.View_Models
                     _content = TextBoxMessage,
                     _sender = MemberLogin
                 };
+                
+                await _signalRService.SendMessageAsync(MemberLogin, message); // Send the message to the server using the SignalR service
 
-                // Send the message to the server using the SignalR service
-                await _signalRService.SendMessageAsync(MemberLogin, message);
-
-                // Clear the message box after sending
-                TextBoxMessage = string.Empty;
+                TextBoxMessage = string.Empty; // Clear the message box after sending
             }
         }
 
         #region API operation
-        /// <summary>
-        /// Display all the memebrs that alreadt exist in the caht (in the data base)
-        /// </summary>
+        // Display all the memebrs that alreadt exist in the caht (in the data base)
         private async void LoadMembers()
         {
             try
@@ -122,16 +135,15 @@ namespace CHAT_APP_CLIENT.View_Models
                     {
                         ChatMembers.Add(member); // Add each member to the ObservableCollection
                     }
-
-                    // Update DisplayTextJoinChat with the names of all members
-                    DisplayTextJoinChat = string.Join("\n", ChatMembers.Select(m => m._name));
+                    DisplayTextJoinChat = string.Join("\n", ChatMembers.Select(m => $"{m._name}  ({m._gender} {m._age})")); // Update DisplayTextJoinChat with the names of all members
                 }
-            }
-            catch (HttpRequestException ex)
+            } catch (HttpRequestException ex)
             {
                 ErrorMessage = "Failed to load members: " + ex.Message;
             }
         }
+
+        // Display all the messages that alreadt exist in the caht (in the data base)
 
         public async void LoadMessages()
         {
@@ -140,29 +152,37 @@ namespace CHAT_APP_CLIENT.View_Models
                 var messages = await _apiServiceMessages.GetAllMessages();
                 if (messages != null)
                 {
+                    ChatMessages.Clear(); // Clear existing messages before adding new ones
                     foreach (var message in messages)
                     {
                         ChatMessages.Add(message);
                     }
 
-                    DisplayTextMessage = string.Join("\n", ChatMessages.Select(ms => ms._content));
+                    // Ensure DisplayTextMessage is updated after loading messages
+                    DisplayTextMessage = string.Join("\n", ChatMessages.Select(m => $"[{m._sender}]:\t{m._content}"));
                 }
-            }
-            catch (HttpRequestException ex)
+            } catch (HttpRequestException ex)
             {
-                ErrorMessage = "Failed to load members: " + ex.Message;
+                ErrorMessage = "Failed to load messages: " + ex.Message;
             }
         }
 
         // Initialize commands here
         private void InitializeCommands()
         {
-            SendMessageCommand = new Commands(OnClick_SendMessage);
-            JoinChatCommand = new Commands(OnClick_JoinNewMemberInChat);
-            LeaveChatCommand = new Commands(OnClick_LeaveChat);
-            ClearAllMembersCommand = new Commands(OnClick_ClearMembers);
-            ClearChatCommand = new Commands(OnClick_ClearMessagesChat);
+            sendMessageCommand = new Commands(OnClick_SendMessage);
+            joinChatCommand = new Commands(OnClick_JoinNewMemberInChat);
+            leaveChatCommand = new Commands(OnClick_LeaveChat);
+            clearAllMembersCommand = new Commands(OnClick_ClearMembers);
+            clearChatCommand = new Commands(OnClick_ClearMessagesChat);
+            connectMemberCommand = new Commands(OnClick_JoinConnectedMemberChat);
+            disconnectMemberCommand = new Commands(OnClick_DisconnectMemberChat);
+            genderMaleMemberCommand = new Commands(OnClick_MemebrGenderMale);
+            genderFemaleMemebrCommand = new Commands(OnClick_MemebrGenderFemale);
+            //agesCommand = new Commands(OnSelected_AgesList);
+            selectedAgeCommand = new Commands(OnSelected_SelectedMemberAge);
         }
+
         #endregion
 
         // Method to notify property changes
@@ -174,7 +194,7 @@ namespace CHAT_APP_CLIENT.View_Models
         #region Properties
         public ObservableCollection<Member> ChatMembers
         {
-            get => _chatMembers;
+            get { return _chatMembers; }
             set
             {
                 _chatMembers = value;
@@ -192,7 +212,30 @@ namespace CHAT_APP_CLIENT.View_Models
             }
         }
 
-        // Property for the first TextBox text
+        public ObservableCollection<int> AgesList
+        {
+            get { return _agesList; }
+            set
+            {
+                _agesList = value;
+                OnPropertyChanged(nameof(AgesList));
+            }
+        }
+
+        public int SelectedMemberAge
+        {
+            get { return _selectedAge; }
+            set
+            {
+                if (_selectedAge != value)
+                {
+                    _selectedAge = value;
+                    OnPropertyChanged(nameof(SelectedMemberAge));
+                    // You can add additional logic here if necessary
+                }
+            }
+        }
+
         public string TextBoxMessage
         {
             get { return _textBoxMessage; }
@@ -202,6 +245,19 @@ namespace CHAT_APP_CLIENT.View_Models
                 {
                     _textBoxMessage = value;
                     OnPropertyChanged(nameof(TextBoxMessage));
+                }
+            }
+        }
+
+        public string TextBoxMemberName
+        {
+            get { return _txtMemberName; }
+            set
+            {
+                if (_txtMemberName != value)
+                {
+                    _txtMemberName = value;
+                    OnPropertyChanged(nameof(TextBoxMemberName));
                 }
             }
         }
@@ -216,15 +272,64 @@ namespace CHAT_APP_CLIENT.View_Models
                 {
                     if (value.Length > maxCharsPerLine)
                     {
-                        // Set an error message if the input exceeds the max characters
-                        ErrorMessage = $"Input cannot exceed {maxCharsPerLine} characters.";
-                    }
-                    else
+                        ErrorMessage = $"Input cannot exceed {maxCharsPerLine} characters."; // Set an error message if the input exceeds the max characters
+                    } else
                     {
                         ErrorMessage = string.Empty; // Clear error message
                         _textBoxJoinOrLeaveChat = value;
                         OnPropertyChanged(nameof(TextBoxJoinOrLeaveChat));
+
+                        // Update button states
+                        IsMaleButtonEnabled = !string.IsNullOrWhiteSpace(_textBoxJoinOrLeaveChat);
+                        IsFemaleButtonEnabled = !string.IsNullOrWhiteSpace(_textBoxJoinOrLeaveChat);
                     }
+                }
+            }
+        }
+
+        public string TextBoxJoinConnectedOrDissconnectedMemberChat
+        {
+            get { return _txtJoinConectedOrDissconnectedMemberChat; }
+            set
+            {
+                if (_txtJoinConectedOrDissconnectedMemberChat != value)
+                {
+                    if (value.Length > maxCharsPerLine)
+                    { 
+                        ErrorMessage = $"Input cannot exceed {maxCharsPerLine} characters."; // Set an error message if the input exceeds the max characters
+                    } else
+                    {
+                        ErrorMessage = string.Empty; // Clear error message
+                        _txtJoinConectedOrDissconnectedMemberChat = value;
+
+                        OnPropertyChanged(nameof(TextBoxJoinConnectedOrDissconnectedMemberChat)); // Notify property change for TextBoxJoinConnectedOrDissconnectedMemberChat
+                    }
+                }
+            }
+        }
+
+        public bool IsMaleButtonEnabled
+        {
+            get { return _isMaleButtonEnabled; }
+            set
+            {
+                if (_isMaleButtonEnabled != value)
+                {
+                    _isMaleButtonEnabled = value;
+                    OnPropertyChanged(nameof(IsMaleButtonEnabled));
+                }
+            }
+        }
+
+        public bool IsFemaleButtonEnabled
+        {
+            get { return _isFemaleButtonEnabled; }
+            set
+            {
+                if (_isFemaleButtonEnabled != value)
+                {
+                    _isFemaleButtonEnabled = value;
+                    OnPropertyChanged(nameof(IsFemaleButtonEnabled));
                 }
             }
         }
@@ -264,6 +369,19 @@ namespace CHAT_APP_CLIENT.View_Models
                 {
                     _displayText = value;
                     OnPropertyChanged(nameof(DisplayTextJoinChat));
+                }
+            }
+        }
+
+        public string DisplayTextConnectedMember
+        {
+            get { return _displayText; }
+            set
+            {
+                if (_displayText != value)
+                {
+                    _displayText = value;
+                    OnPropertyChanged(nameof(DisplayTextConnectedMember));
                 }
             }
         }
@@ -308,7 +426,7 @@ namespace CHAT_APP_CLIENT.View_Models
         }
         #endregion
 
-        private async void MemebrConnection(Member currentMember)
+        private void MemebrConnection(Member currentMember) // Not made async to prevent warning
         {
             if (!string.IsNullOrEmpty(MemberLogin))
             {
@@ -319,63 +437,131 @@ namespace CHAT_APP_CLIENT.View_Models
         // Method that handles sending a message
         private async void OnClick_SendMessage()
         {
-            if (!string.IsNullOrEmpty(TextBoxMessage))
+            var memberName = TextBoxMemberName;
+            var member = _chatMembers.FirstOrDefault(m => m._name == memberName); // Find member
+
+            if (string.IsNullOrWhiteSpace(TextBoxMemberName) && string.IsNullOrEmpty(TextBoxMessage))
             {
-                var newMessage = new Message
+                MessageBox.Show("Enter the member name at the top of the page, and enter a message to the chat at the bottom of the page.");
+            } else if (string.IsNullOrWhiteSpace(TextBoxMemberName))
+            {
+                MessageBox.Show("Enter the member name at the top of the page.");
+            } else if (string.IsNullOrEmpty(TextBoxMessage))
+            {
+                MessageBox.Show("Enter a message to the chat at the bottom of the page.");
+            } else if (member == null)
+            {
+                MessageBox.Show("The member is not in the chat.");
+            } else if (!member._isLogin && member != null)
+            {
+                MessageBox.Show("The member is in the chat but not connected to the chat. Connect.");
+            } else
+            {
+                if (!string.IsNullOrEmpty(TextBoxMessage))
                 {
-                    _content = TextBoxMessage,
-                    _id = 0,
-                    _sender = ""
-                };
-                TextBoxMessage = string.Empty;
-
-                try
-                {
-                    var response = await _apiServiceMessages.AddMessageToChatAsync(newMessage);
-                    if (response.IsSuccessStatusCode)
+                    var newMessage = new Message
                     {
-                        var responseBody = await response.Content.ReadAsStringAsync();
-                        var addMessage = Newtonsoft.Json.JsonConvert.DeserializeObject<Message>(responseBody);
+                        _content = TextBoxMessage, // Use the string here
+                        _id = 0,
+                        _sender = TextBoxMemberName // Assign the member name as the sender
+                    };
 
-                        if (addMessage != null)
-                        {
-                            _chatMessages.Add(addMessage);
+                    TextBoxMessage = string.Empty; // Clear the message box, but keep the member name
 
-                            // Update the display text
-                            DisplayTextMessage = string.Join("\n", _chatMessages.Select(m => m._content));
-                            OnPropertyChanged(nameof(DisplayTextMessage));
-                        }
-                        else
-                        {
-                            ErrorMessage = "Failed to parse the message details from the response.";
-                        }
-                    }
-                    else
+                    try
                     {
-                        ErrorMessage = $"Failed to add message: {response.ReasonPhrase}";
+                        var response = await _apiServiceMessages.AddMessageToChatAsync(newMessage);
+                        if (response.IsSuccessStatusCode)
+                        {
+                            var responseBody = await response.Content.ReadAsStringAsync();
+                            var addMessage = Newtonsoft.Json.JsonConvert.DeserializeObject<Message>(responseBody);
+
+                            if (addMessage != null)
+                            {
+                                ChatMessages.Add(addMessage); // Add the new message to the collection
+                                                              // Update the display text with both message content and sender
+                                DisplayTextMessage = string.Join("\n", ChatMessages.Select(m => $"[{m._sender}]:\t{m._content}")); // Proper concatenation
+
+                                //DisplayTextMessage = string.Join("\n", _chatMessages.Select(m => $"[{m._sender}]:  {m._content}")); // Proper concatenation
+                                OnPropertyChanged(nameof(DisplayTextMessage));
+                            } else
+                            {
+                                ErrorMessage = "Failed to parse the message details from the response.";
+                            }
+                        } else
+                        {
+                            ErrorMessage = $"Failed to add message: {response.ReasonPhrase}";
+                        }
+                    } catch (HttpRequestException ex)
+                    {
+                        ErrorMessage = "Failed to add message: " + ex.Message;
                     }
-                }
-                catch (HttpRequestException ex)
+                } else
                 {
-                    ErrorMessage = "Failed to add message: " + ex.Message;
+                    ErrorMessage = $"Input cannot be empty. Please enter a message.";
                 }
             }
-            else
+        }
+
+        private async void OnClick_MemebrGenderMale()
+        {
+            IsMaleButtonEnabled = false;
+            IsFemaleButtonEnabled = true;
+            if (IsMaleButtonEnabled == false)
             {
-                ErrorMessage = $"Input cannot exceed {maxCharsPerLine} characters.";
+                _selectedGender = "Male";
+            }
+        }
+
+        private async void OnClick_MemebrGenderFemale()
+        {
+            IsFemaleButtonEnabled = false;
+            IsMaleButtonEnabled = true;
+            if (IsFemaleButtonEnabled == false)
+            {
+                _selectedGender = "Female";
+            }
+        }
+
+        private bool CanClick_MaleButton()
+        {
+            return !IsMaleButtonEnabled;  // Can execute if the male button is enabled
+        }
+
+        private bool CanClick_FemaleButton()
+        {
+            return !IsFemaleButtonEnabled;  // Can execute if the female button is enabled
+        }
+
+        public async void OnSelected_SelectedMemberAge()
+        {
+            var ages = AgesList;
+            foreach (var age in ages)
+            {
+                if (SelectedMemberAge == age)
+                {
+                    _selectedAge = age;
+                    break;
+                }
             }
         }
 
         private async void OnClick_JoinNewMemberInChat()
         {
-            if (!string.IsNullOrEmpty(TextBoxJoinOrLeaveChat))
+            if (_selectedGender == "")
+            {
+                    MessageBox.Show("No gender was selected");
+            } else if (_selectedAge == 0)
+            {
+                MessageBox.Show("No age was selected");
+            } else if (!string.IsNullOrEmpty(TextBoxJoinOrLeaveChat))
             {
                 var newMember = new Member
                 {
                     _name = TextBoxJoinOrLeaveChat,
                     _id = 0,
-                    _gender = "Female/Male",
-                    _age = 0,
+                    _gender = _selectedGender,
+                    _age = _selectedAge,
                     _isManager = false,
                     _isLogin = false
                 };
@@ -394,25 +580,21 @@ namespace CHAT_APP_CLIENT.View_Models
                             _chatMembers.Add(addedMember);
 
                             // Update the display text
-                            DisplayTextJoinChat = string.Join("\n", _chatMembers.Select(m => m._name));
+                            DisplayTextJoinChat = string.Join("\n", _chatMembers.Select(m => $"{m._name}  ({m._gender} {m._age})"));
                             OnPropertyChanged(nameof(DisplayTextJoinChat));
-                        }
-                        else
+                        } else
                         {
                             ErrorMessage = "Failed to parse the member details from the response.";
                         }
-                    }
-                    else
+                    } else
                     {
                         ErrorMessage = $"Failed to add member: {response.ReasonPhrase}";
                     }
-                }
-                catch (HttpRequestException ex)
+                } catch (HttpRequestException ex)
                 {
                     ErrorMessage = "Failed to add member: " + ex.Message;
                 }
-            }
-            else
+            } else
             {
                 ErrorMessage = $"Input cannot exceed {maxCharsPerLine} characters.";
             }
@@ -433,17 +615,13 @@ namespace CHAT_APP_CLIENT.View_Models
 
                         if (success)
                         {
-                            // Remove only the deleted member from the ObservableCollection
-                            _chatMembers.Remove(member);
+                            _chatMembers.Remove(member); // Remove only the deleted member from the ObservableCollection
 
-                            // Clear TextBoxJoinOrLeaveChat after deletion
-                            TextBoxJoinOrLeaveChat = string.Empty;
+                            TextBoxJoinOrLeaveChat = string.Empty; // Clear TextBoxJoinOrLeaveChat after deletion
 
-                            // Update DisplayTextJoinChat with the remaining members
-                            DisplayTextJoinChat = string.Join("\n", _chatMembers.Select(m => m._name));
+                            DisplayTextJoinChat = string.Join("\n", _chatMembers.Select(m => m._name)); // Update DisplayTextJoinChat with the remaining members
                         }
-                    }
-                    catch (Exception ex)
+                    } catch (Exception ex)
                     {
                         ErrorMessage = "Failed to delete member: " + ex.Message;
                     }
@@ -454,6 +632,90 @@ namespace CHAT_APP_CLIENT.View_Models
             } else
             {
                 MessageBox.Show("No name provided. Enter a member name to leave the chat.");
+            }
+        }
+
+        private async void OnClick_JoinConnectedMemberChat()
+        {
+            if (!string.IsNullOrEmpty(TextBoxJoinConnectedOrDissconnectedMemberChat))
+            {
+                var memberName = TextBoxJoinConnectedOrDissconnectedMemberChat;
+                var member = _chatMembers.FirstOrDefault(m => m._name == memberName); // Find member
+
+                if (member != null)
+                {
+                    try
+                    {
+                        member._isLogin = true; // Set member login status to true
+
+                        var updatedMember = await _apiServiceMembers.UpdateLoginFieldToTrue(member._id, member); // Call the service method to update the login field in the database
+
+                        if (updatedMember != null)
+                        {
+                            _connectedMembers.Add(member); // Update local list of connected members
+
+                            // Clear the text box and update display text
+                            TextBoxJoinConnectedOrDissconnectedMemberChat = string.Empty;
+                            DisplayTextConnectedMember = string.Join("\n", _connectedMembers.Select(m => $"{m._name}" +
+                            $"  ({m._gender} {m._age})"));
+                            OnPropertyChanged(nameof(DisplayTextConnectedMember));
+                        } else
+                        {
+                            ErrorMessage = "Failed to update login status in the database.";
+                        }
+                    } catch (Exception ex)
+                    {
+                        ErrorMessage = "Failed to add member: " + ex.Message;
+                    }
+                } else
+                {
+                    MessageBox.Show($"{TextBoxJoinConnectedOrDissconnectedMemberChat} is not currently connected to the chat.");
+                }
+            } else
+            {
+                MessageBox.Show("No member name provided. Enter a member name to connect to the chat.");
+            }
+        }
+
+        private async void OnClick_DisconnectMemberChat()
+        {
+            if (!string.IsNullOrEmpty(TextBoxJoinConnectedOrDissconnectedMemberChat))
+            {
+                var memberName = TextBoxJoinConnectedOrDissconnectedMemberChat;
+                var member = _chatMembers.FirstOrDefault(m => m._name == memberName); // Find member
+
+                if (member != null)
+                {
+                    try
+                    {
+                        member._isLogin = false; // Set member login status to false (disconnecting the member)
+
+                        var updatedMember = await _apiServiceMembers.UpdateLoginFieldToFalse(member._id, member); // Call the service method to update the login field in the database
+
+                        if (updatedMember != null)
+                        {
+                            
+                            _connectedMembers.Remove(member); // Update local list of connected members (remove the disconnected member)
+
+                            // Clear the text box and update display text
+                            TextBoxJoinConnectedOrDissconnectedMemberChat = string.Empty;
+                            DisplayTextConnectedMember = string.Join("\n", _connectedMembers.Select(m => m._name));
+                            OnPropertyChanged(nameof(DisplayTextConnectedMember));
+                        } else
+                        {
+                            ErrorMessage = "Failed to update login status in the database.";
+                        }
+                    } catch (Exception ex)
+                    {
+                        ErrorMessage = "Failed to disconnect member: " + ex.Message;
+                    }
+                } else
+                {
+                    MessageBox.Show($"{TextBoxJoinConnectedOrDissconnectedMemberChat} is not currently connected to the chat.");
+                }
+            } else
+            {
+                MessageBox.Show("No member name provided. Enter a member name to disconnect from the chat.");
             }
         }
 
@@ -471,8 +733,7 @@ namespace CHAT_APP_CLIENT.View_Models
 
                 OnPropertyChanged(nameof(DisplayTextJoinChat));
                 OnPropertyChanged(nameof(_chatMembers)); // Notify UI that members list has changed
-            }
-            catch (Exception ex)
+            } catch (Exception ex)
             {
                 ErrorMessage = $"An error occurred while clearing members: {ex.Message}";
                 OnPropertyChanged(nameof(ErrorMessage)); // Notify UI to update the error message
@@ -491,8 +752,7 @@ namespace CHAT_APP_CLIENT.View_Models
                 ErrorMessage = string.Empty;
                 OnPropertyChanged(nameof(DisplayTextMessage));
                 OnPropertyChanged(nameof(_chatMessages));
-            }
-            catch (Exception ex)
+            } catch (Exception ex)
             {
                 ErrorMessage = $"An error occurred while clearing messages: {ex.Message}";
                 OnPropertyChanged(nameof(ErrorMessage)); // Notify UI to update the error message

@@ -9,8 +9,8 @@ namespace SERVER_SIDE.Controllers
     [ApiController]
     public class MessagesController : Controller
     {
-        private readonly DataBaseContext _dataBaseContext;
-        private readonly MessagesService _messgeService;
+        private readonly DataBaseContext _dataBaseContext; // Data context dependency injection
+        private readonly MessagesService _messgeService; // Service dependency injection
 
         public MessagesController(DataBaseContext dataBaseContext, MessagesService memberService)
         {

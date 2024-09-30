@@ -52,6 +52,58 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SERVER_SIDE.Controllers.MembersController",
+    "Method": "ResetAllMembersLogin",
+    "RelativePath": "api/Members/resetAllLogins",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SERVER_SIDE.Controllers.MembersController",
+    "Method": "UpdateLoginFieldForConnectedMember",
+    "RelativePath": "api/Members/updateLoginFieldForConnectedMemebr/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "member",
+        "Type": "SERVER_SIDE.Models.Member",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SERVER_SIDE.Controllers.MembersController",
+    "Method": "UpdateLoginFieldForDisconnectedMember",
+    "RelativePath": "api/Members/updateLoginFieldForDisconnectedonnectedMemebr/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "member",
+        "Type": "SERVER_SIDE.Models.Member",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SERVER_SIDE.Controllers.MessagesController",
     "Method": "GetAllMesages",
     "RelativePath": "api/Messages",

@@ -10,7 +10,7 @@ namespace CHAT_APP_CLIENT.Services
 
         public ApiServiceMessages()
         {
-            _httpClient = new HttpClient()
+            _httpClient = new HttpClient() // dependency injection for connect between the client side and the server side
             {
                 BaseAddress = new Uri("https://localhost:5021/") // ASP.NET CORE WEB API back-end URL
             };

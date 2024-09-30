@@ -142,6 +142,7 @@ C:\Users\Alon\Desktop\C#\WPF\CHAT_APP_INTERACTIVE\CHAT_APP_CLIENT\obj\Debug\net8
 C:\Users\Alon\Desktop\C#\WPF\CHAT_APP_INTERACTIVE\CHAT_APP_CLIENT\obj\Debug\net8.0-windows\CHAT_APP_CLIENT.AssemblyInfoInputs.cache
 C:\Users\Alon\Desktop\C#\WPF\CHAT_APP_INTERACTIVE\CHAT_APP_CLIENT\obj\Debug\net8.0-windows\CHAT_APP_CLIENT.AssemblyInfo.cs
 C:\Users\Alon\Desktop\C#\WPF\CHAT_APP_INTERACTIVE\CHAT_APP_CLIENT\obj\Debug\net8.0-windows\CHAT_APP_CLIENT.csproj.CoreCompileInputs.cache
+C:\Users\Alon\Desktop\C#\WPF\CHAT_APP_INTERACTIVE\CHAT_APP_CLIENT\obj\Debug\net8.0-windows\CHAT_APP_CLIENT.sourcelink.json
 C:\Users\Alon\Desktop\C#\WPF\CHAT_APP_INTERACTIVE\CHAT_APP_CLIENT\obj\Debug\net8.0-windows\CHAT_APP.312B12EB.Up2Date
 C:\Users\Alon\Desktop\C#\WPF\CHAT_APP_INTERACTIVE\CHAT_APP_CLIENT\obj\Debug\net8.0-windows\CHAT_APP_CLIENT.dll
 C:\Users\Alon\Desktop\C#\WPF\CHAT_APP_INTERACTIVE\CHAT_APP_CLIENT\obj\Debug\net8.0-windows\refint\CHAT_APP_CLIENT.dll

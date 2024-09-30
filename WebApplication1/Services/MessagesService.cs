@@ -5,7 +5,7 @@ namespace SERVER_SIDE.Services
 {
     public class MessagesService
     {
-        private readonly DataBaseContext _dataBaseContext;
+        private readonly DataBaseContext _dataBaseContext; // Data context dependency injection
 
         public MessagesService(DataBaseContext dataBaseContext)
         {
@@ -28,7 +28,7 @@ namespace SERVER_SIDE.Services
         }
 
         // DELETE action
-        public async Task<Message> DeleteMessageFromChat(int id)
+        public async Task<Message?> DeleteMessageFromChat(int id)
         {
             var message = await _dataBaseContext.messageEntity.FirstOrDefaultAsync(db => db._id == id);
             if (message != null)
