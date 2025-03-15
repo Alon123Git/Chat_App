@@ -6,10 +6,6 @@ namespace CHAT_APP_CLIENT.Services
 {
     public class ApiServiceMembers
     {
-        /// <summary>
-        /// Reset all fields login of all memebrs to false (0 in data-base) after the app is close
-        /// </summary>
-
         private readonly HttpClient _httpClient; // dependency injection for connect between the client side and the server side
 
         public ApiServiceMembers()
@@ -70,21 +66,18 @@ namespace CHAT_APP_CLIENT.Services
                 if (response.IsSuccessStatusCode)
                 {
                     return true; // return true if the member successfully deleted
-                }
-                else
+                } else
                 {
                     var responseBody = await response.Content.ReadAsStringAsync();
                     Console.WriteLine($"Error response: {responseBody}");
                     Console.WriteLine("Failed to delete member. Status Code: " + response.StatusCode);
                     return false;
                 }
-            }
-            catch (HttpRequestException ex)
+            } catch (HttpRequestException ex)
             {
                 Console.WriteLine($"HTTP Request failed: {ex.Message}");
                 return false;
-            }
-            catch (Exception ex)
+            } catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
                 return false;
@@ -101,8 +94,7 @@ namespace CHAT_APP_CLIENT.Services
                 {
                     Console.WriteLine("All members deleted successfully.");
                     return true;
-                }
-                else
+                } else
                 {
                     var errorContent = await response.Content.ReadAsStringAsync();
                     Console.WriteLine($"Failed to delete members. Status code: {response.StatusCode}, Error: {errorContent}");
@@ -113,8 +105,7 @@ namespace CHAT_APP_CLIENT.Services
             {
                 Console.WriteLine($"HTTP Request error: {httpRequestEx.Message}"); // Log HTTP request exceptions (e.g., network issues)
                 return false;
-            }
-            catch (Exception ex)
+            } catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}"); // Print generic exceptions
                 return false;

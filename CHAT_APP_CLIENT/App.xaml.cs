@@ -6,8 +6,10 @@ using System.Windows;
 namespace CHAT_APP_CLIENT
 {
     /// <summary>
-    /// Interaction logic for App.xaml
+    /// Interaction logic for App.xaml.
+    /// Reset all fields login of all memebrs to false (0 in data-base) after the app is close.
     /// </summary>
+
     public partial class App : Application
     {
         private readonly HttpClient _httpClient;
@@ -31,7 +33,8 @@ namespace CHAT_APP_CLIENT
         {
             try
             {
-                var response = await _httpClient.PutAsync("api/Members/resetAllLogins", null); // Make API call to reset login status for all members
+                var response = await _httpClient.PutAsync
+                    ("api/Members/resetAllLogins", null); // Make API call to reset login status for all members
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -45,7 +48,5 @@ namespace CHAT_APP_CLIENT
                 Console.WriteLine($"Error resetting login status: {ex.Message}");
             }
         }
-
     }
-
 }

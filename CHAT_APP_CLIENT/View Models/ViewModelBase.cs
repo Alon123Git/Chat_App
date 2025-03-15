@@ -11,9 +11,9 @@ namespace CHAT_APP_CLIENT.View_Models
 {
     public class ViewModelBase : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler? PropertyChanged;
         private readonly ApiServiceMembers _apiServiceMembers; // API service to get the data from the ASP.NET CORE WEB API back-end
         private readonly ApiServiceMessages _apiServiceMessages;
-        public event PropertyChangedEventHandler? PropertyChanged;
         private readonly SignalRService _signalRService;
         
         // Commands for different button actions
@@ -28,6 +28,7 @@ namespace CHAT_APP_CLIENT.View_Models
         public ICommand genderFemaleMemebrCommand { get; private set; } // Member gender female command
         public ICommand agesCommand { get; private set; } // Member ages list command
         public ICommand selectedAgeCommand { get; private set; } // Member selected age command
+        public ICommand navigateCommand { get; private set; } // Navigate command
 
         // strings for write and display the text in the UI
         private string _textBoxMessage = string.Empty;
@@ -88,6 +89,7 @@ namespace CHAT_APP_CLIENT.View_Models
             LoadMembers(); // Load members when the ViewModel is instantiated
             LoadMessages(); // Load messages when the ViewModel is instantiated
         }
+
         private void InitialAgesList()
         {
             AgesList = new ObservableCollection<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
@@ -95,7 +97,7 @@ namespace CHAT_APP_CLIENT.View_Models
             30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48,
             49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67,
             68, 89, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86,
-            87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100};  // Example ages
+            87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100};
         }
 
         // Start SignalR connection asynchronously
@@ -179,7 +181,6 @@ namespace CHAT_APP_CLIENT.View_Models
             disconnectMemberCommand = new Commands(OnClick_DisconnectMemberChat);
             genderMaleMemberCommand = new Commands(OnClick_MemebrGenderMale);
             genderFemaleMemebrCommand = new Commands(OnClick_MemebrGenderFemale);
-            //agesCommand = new Commands(OnSelected_AgesList);
             selectedAgeCommand = new Commands(OnSelected_SelectedMemberAge);
         }
 
@@ -361,7 +362,7 @@ namespace CHAT_APP_CLIENT.View_Models
         }
 
         public string DisplayTextJoinChat
-        {
+        {   
             get { return _displayText; }
             set
             {
@@ -465,7 +466,6 @@ namespace CHAT_APP_CLIENT.View_Models
                         _id = 0,
                         _sender = TextBoxMemberName // Assign the member name as the sender
                     };
-
                     TextBoxMessage = string.Empty; // Clear the message box, but keep the member name
 
                     try
@@ -479,10 +479,9 @@ namespace CHAT_APP_CLIENT.View_Models
                             if (addMessage != null)
                             {
                                 ChatMessages.Add(addMessage); // Add the new message to the collection
-                                                              // Update the display text with both message content and sender
-                                DisplayTextMessage = string.Join("\n", ChatMessages.Select(m => $"[{m._sender}]:\t{m._content}")); // Proper concatenation
+                                DisplayTextMessage = string.Join("\n", ChatMessages.Select
+                                    (m => $"[{m._sender}]:\t{m._content}")); // Proper concatenation
 
-                                //DisplayTextMessage = string.Join("\n", _chatMessages.Select(m => $"[{m._sender}]:  {m._content}")); // Proper concatenation
                                 OnPropertyChanged(nameof(DisplayTextMessage));
                             } else
                             {
@@ -548,9 +547,12 @@ namespace CHAT_APP_CLIENT.View_Models
 
         private async void OnClick_JoinNewMemberInChat()
         {
-            if (_selectedGender == "")
+            if (_selectedGender == "" && _selectedAge == 0)
             {
-                    MessageBox.Show("No gender was selected");
+                MessageBox.Show("No gender and age selected");
+            } else if (_selectedGender == "")
+            {
+                MessageBox.Show("No gender was selected");
             } else if (_selectedAge == 0)
             {
                 MessageBox.Show("No age was selected");
@@ -563,7 +565,10 @@ namespace CHAT_APP_CLIENT.View_Models
                     _gender = _selectedGender,
                     _age = _selectedAge,
                     _isManager = false,
-                    _isLogin = false
+                    _isLogin = false,
+                    _isRegistered = false,
+                    _passwordHash = "rnd password",
+                    _role = ""
                 };
                 TextBoxJoinOrLeaveChat = string.Empty;
 
@@ -695,10 +700,9 @@ namespace CHAT_APP_CLIENT.View_Models
                         if (updatedMember != null)
                         {
                             
-                            _connectedMembers.Remove(member); // Update local list of connected members (remove the disconnected member)
+                            _connectedMembers.Remove(member); // Remove member from the conection members list
 
-                            // Clear the text box and update display text
-                            TextBoxJoinConnectedOrDissconnectedMemberChat = string.Empty;
+                            TextBoxJoinConnectedOrDissconnectedMemberChat = string.Empty; // Clear the text box and update display text
                             DisplayTextConnectedMember = string.Join("\n", _connectedMembers.Select(m => m._name));
                             OnPropertyChanged(nameof(DisplayTextConnectedMember));
                         } else

@@ -10,10 +10,9 @@
         Title="MainWindow" Height="850" Width="1500">
 
     <Window.Resources>
-
         <BitmapImage x:Key="female" UriSource="Images\FEMALE GENDER.png" />
         <BitmapImage x:Key="male" UriSource="Images\MALE GENDER.png" />
-        
+
         <local:CustomMultiValueConverter x:Key="BindingKey" />
 
         <DataTemplate x:Key="chatMemberTemplate">
@@ -25,7 +24,8 @@
             </StackPanel>
         </DataTemplate>
     </Window.Resources>
-    
+
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -44,8 +44,12 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        
+
         <StackPanel Grid.ColumnSpan="2" Grid.RowSpan="5" Background="LightGreen">
+            <Button Name="MoveToWindow" Content="Navigate"
+                HorizontalAlignment="Left"
+                Background="Red"
+                VerticalAlignment="Top" Click="MoveToWindow_Click"/>
             <TextBlock Text="CHAT APP" FontSize="30" HorizontalAlignment="Center" />
             <!--Join chat action-->
             <TextBox Name="txtJoinChat"
@@ -153,7 +157,7 @@
                         Command="{Binding disconnectMemberCommand}"
                         HorizontalAlignment="Right" FontSize="10" />
             </Grid>
-            
+
             <TextBlock Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center"
                        Text="Login" FontSize="30" />
             <TextBlock Grid.Row="1" Grid.ColumnSpan="6" HorizontalAlignment="Center"
@@ -201,7 +205,8 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="5" Grid.RowSpan="3" Grid.ColumnSpan="2" Text="Chat"
+            <TextBlock Grid.Column="5" Grid.RowSpan="3" Grid.ColumnSpan="2"
+                       Text="Chat"
                        FontSize="40" HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
             <Button Content="Clear chat" Command="{Binding clearChatCommand}"
@@ -261,7 +266,7 @@
         <TextBlock Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="IN THE CHAT"
                    FontSize="30" />
 
-        <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.RowSpan="4"
+        <ScrollViewer Grid.Row="1" Grid.RowSpan="4"
                       Grid.ColumnSpan="2"
                       Background="LightGreen">
             <TextBlock Text="{Binding DisplayTextJoinChat}" FontSize="20" />

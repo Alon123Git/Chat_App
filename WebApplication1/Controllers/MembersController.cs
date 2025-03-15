@@ -23,7 +23,7 @@ namespace SERVER_SIDE.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllMembers()
         {
-            var allMembers = await _memberService.GetAllMembers();
+            var allMembers = await _memberService.GetAllMembers();  
             return Ok(allMembers);
         }
 
@@ -54,7 +54,6 @@ namespace SERVER_SIDE.Controllers
             {
                 return Ok(updatedMember); // Return the updated member
             }
-
             return NotFound(); // Return 404 if the member is not found
         }
 

@@ -1,5 +1,4 @@
 ﻿using SERVER_SIDE.Models;
-using System;
 using System.Windows.Input;
 
 namespace CHAT_APP_CLIENT.Extensions
@@ -40,16 +39,13 @@ namespace CHAT_APP_CLIENT.Extensions
             if (_execute != null)
             {
                 _execute();
-            }
-            else if (_executeWithMember != null && parameter is Member member)
+            } else if (_executeWithMember != null && parameter is Member member)
             {
                 _executeWithMember(member);
-            }
-            else if (_executeWithString != null && parameter is string str)
+            } else if (_executeWithString != null && parameter is string str)
             {
                 _executeWithString(str);
-            }
-            else
+            } else
             {
                 throw new InvalidOperationException("No valid command to execute or invalid parameter type.");
             }

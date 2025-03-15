@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SERVER_SIDE.DBContext;
 
@@ -10,9 +11,11 @@ using SERVER_SIDE.DBContext;
 namespace SERVER_SIDE.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20241014210652_addChatsModel")]
+    partial class addChatsModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,28 +23,6 @@ namespace SERVER_SIDE.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("SERVER_SIDE.Models.Chat", b =>
-                {
-                    b.Property<int>("_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("_id"));
-
-                    b.Property<int>("_memberBelong_id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("_name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("_id");
-
-                    b.HasIndex("_memberBelong_id");
-
-                    b.ToTable("chatEntity");
-                });
 
             modelBuilder.Entity("SERVER_SIDE.Models.Member", b =>
                 {
@@ -64,22 +45,7 @@ namespace SERVER_SIDE.Migrations
                     b.Property<bool>("_isManager")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("_isRegistered")
-                        .HasColumnType("bit");
-
                     b.Property<string>("_name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("_password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("_passwordHash")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("_role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -107,17 +73,6 @@ namespace SERVER_SIDE.Migrations
                     b.HasKey("_id");
 
                     b.ToTable("messageEntity");
-                });
-
-            modelBuilder.Entity("SERVER_SIDE.Models.Chat", b =>
-                {
-                    b.HasOne("SERVER_SIDE.Models.Member", "_memberBelong")
-                        .WithMany()
-                        .HasForeignKey("_memberBelong_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("_memberBelong");
                 });
 #pragma warning restore 612, 618
         }

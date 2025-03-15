@@ -35,8 +35,7 @@ namespace SERVER_SIDE.Services
             {
                 _dataBaseContext.messageEntity.Remove(message);
                 await _dataBaseContext.SaveChangesAsync();
-            }
-            else
+            } else
             {
                 Console.WriteLine("Error occur");
             }

@@ -65,7 +65,7 @@ namespace CHAT_APP_CLIENT
             }
         }
 
-        private void txtMessages_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void txtMessages_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             // Check if the Enter key is pressed without Shift
             if (e.Key == Key.Enter && !Keyboard.IsKeyDown(Key.LeftShift) && !Keyboard.IsKeyDown(Key.RightShift))
@@ -75,8 +75,7 @@ namespace CHAT_APP_CLIENT
                 var viewModel = (ViewModelBase)this.DataContext; // Adjust based on your DataContext
                 viewModel.sendMessageCommand.Execute(null);
 
-                // Prevent further processing of the Enter key
-                e.Handled = true;
+                e.Handled = true; // Prevent further processing of the Enter key
             }
         }
 
@@ -90,6 +89,13 @@ namespace CHAT_APP_CLIENT
         {
             btnFemale.IsEnabled = false;
             btnMale.IsEnabled = true;
+        }
+
+        private void MoveToWindow_Click(object sender, RoutedEventArgs e)
+        {
+            CenterWindow cw = new CenterWindow();
+            this.Close();
+            cw.Show();
         }
     }
 }

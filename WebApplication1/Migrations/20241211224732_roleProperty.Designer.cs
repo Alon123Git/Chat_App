@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SERVER_SIDE.DBContext;
 
@@ -10,9 +11,11 @@ using SERVER_SIDE.DBContext;
 namespace SERVER_SIDE.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20241211224732_roleProperty")]
+    partial class roleProperty
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,18 +67,11 @@ namespace SERVER_SIDE.Migrations
                     b.Property<bool>("_isManager")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("_isRegistered")
-                        .HasColumnType("bit");
-
                     b.Property<string>("_name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("_password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("_passwordHash")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
