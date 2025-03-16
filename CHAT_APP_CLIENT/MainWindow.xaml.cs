@@ -24,6 +24,12 @@ namespace CHAT_APP_CLIENT
             }
         }
 
+        public MainWindow(ViewModelBase viewModel)
+        {
+            InitializeComponent();
+            DataContext = viewModel; // ✅ Use the existing ViewModel instance
+        }
+
         private void txtJoinChat_TextChanged(object sender, TextChangedEventArgs e)
         {
             Debug.WriteLine($"Current text: '{txtJoinChat.Text}'");

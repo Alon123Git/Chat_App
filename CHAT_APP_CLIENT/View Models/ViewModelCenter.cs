@@ -7,7 +7,6 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Net.Http;
 using System.Text;
-using System.Windows;
 using System.Windows.Input;
 
 namespace CHAT_APP_CLIENT.View_Models
@@ -118,7 +117,7 @@ namespace CHAT_APP_CLIENT.View_Models
                     foreach (var chat in chats)
                     {
                         _chatsList.Add(chat);
-                        ButtonList.Add(chat._name); // Add chat name to ButtonList
+                        ChatButtons.Add(new ViewModelChatButton(chat)); // Add chat name to ButtonList
                     }
 
                     UpdateDisplayChatText();
@@ -281,14 +280,16 @@ namespace CHAT_APP_CLIENT.View_Models
         }
         #endregion
 
-        private ObservableCollection<string> _buttonList = new ObservableCollection<string>();
-        public ObservableCollection<string> ButtonList
+        //private ObservableCollection<string> _buttonList = new ObservableCollection<string>();
+        public ObservableCollection<ViewModelChatButton> _chatButtons { get; set; } = new ObservableCollection<ViewModelChatButton>();
+
+        public ObservableCollection<ViewModelChatButton> ChatButtons
         {
-            get { return _buttonList; }
+            get { return _chatButtons; }
             set
             {
-                _buttonList = value;
-                OnPropertyChanged(nameof(ButtonList));
+                _chatButtons = value;
+                OnPropertyChanged(nameof(ChatButtons));
             }
         }
 
@@ -306,7 +307,9 @@ namespace CHAT_APP_CLIENT.View_Models
                     _isManager = false,
                     _isLogin = true,
                     _isRegistered = false,
-                    _passwordHash = ""
+                    _password = "some password",
+                    _passwordHash = "some hash password",
+                    _role = "user"
                 }
             };
             TextBoxCreateNewChat = string.Empty;
@@ -317,14 +320,15 @@ namespace CHAT_APP_CLIENT.View_Models
                 if (response.IsSuccessStatusCode)
                 {
                     var responseBody = await response.Content.ReadAsStringAsync();
-                    var addedChat = Newtonsoft.Json.JsonConvert.DeserializeObject<Chat>(responseBody);
+                    var addedChat = JsonConvert.DeserializeObject<Chat>(responseBody);
                     if (addedChat != null)
                     {
                         _chatsList.Add(addedChat);
 
-                        ButtonList.Add(addedChat._name); // Add the new chat name to the button list
+                        // הוספת הכפתור לרשימה, עם פקודת ניווט
+                        ChatButtons.Add(new ViewModelChatButton(addedChat));
 
-                        DisplayChatText = string.Empty; // Update the UI
+                        DisplayChatText = string.Empty;
                         OnPropertyChanged(nameof(DisplayChatText));
                     }
                     else
@@ -342,6 +346,7 @@ namespace CHAT_APP_CLIENT.View_Models
                 ErrorMessage = "Failed to add chat: " + ex.Message;
             }
         }
+
 
         private async void OnClick_Register()
         {
@@ -456,9 +461,7 @@ namespace CHAT_APP_CLIENT.View_Models
                     if (parts.Length == 3)
                     {
                         var payload = parts[1];
-
                         var jsonBytes = _apiServiceAuth.Base64UrlDecode(payload); // Base64-URL decode the payload
-
                         var jsonString = Encoding.UTF8.GetString(jsonBytes); // Convert the bytes to a string
 
                         // Deserialize the JSON to a dictionary

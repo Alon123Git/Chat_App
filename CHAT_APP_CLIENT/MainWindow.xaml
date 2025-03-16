@@ -14,6 +14,7 @@
         <BitmapImage x:Key="male" UriSource="Images\MALE GENDER.png" />
 
         <local:CustomMultiValueConverter x:Key="BindingKey" />
+        <view_models:ViewModelChatButton x:Key="ViewModelChatBtn" />
 
         <DataTemplate x:Key="chatMemberTemplate">
             <StackPanel Orientation="Horizontal">
@@ -24,8 +25,7 @@
             </StackPanel>
         </DataTemplate>
     </Window.Resources>
-
-
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -206,9 +206,9 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="5" Grid.RowSpan="3" Grid.ColumnSpan="2"
-                       Text="Chat"
+                       Text="{Binding ChatTitle, UpdateSourceTrigger=PropertyChanged}"
                        FontSize="40" HorizontalAlignment="Center"
-                       VerticalAlignment="Center"/>
+                       VerticalAlignment="Center" />
             <Button Content="Clear chat" Command="{Binding clearChatCommand}"
                 Background="LightBlue" FontSize="10"/>
             <TextBlock Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="3"

@@ -66,10 +66,11 @@
             UpdateSourceTrigger=PropertyChanged}">
         </TextBox>
 
-        <ScrollViewer Grid.Row="4" Grid.RowSpan="6"
-              Grid.ColumnSpan="4"
-              Background="LightGreen">
-            <ItemsControl ItemsSource="{Binding ButtonList}">
+        <ContentControl x:Name="ChatContent" Grid.Column="5"
+                Grid.Row="0" Grid.RowSpan="10"/>
+
+        <ScrollViewer Grid.Row="4" Grid.RowSpan="6" Grid.ColumnSpan="4" Background="LightGreen">
+            <ItemsControl ItemsSource="{Binding ChatButtons}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Vertical" />
@@ -77,9 +78,10 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Content="{Binding}"
-                                FontSize="20" Margin="5"
-                                Background="LightCoral"/>
+                        <Button Content="{Binding ChatName}" 
+                        Command="{Binding NavigateCommand}"
+                        FontSize="20" Margin="5"
+                        Background="LightCoral"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

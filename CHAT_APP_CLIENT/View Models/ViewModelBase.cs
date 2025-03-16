@@ -192,6 +192,22 @@ namespace CHAT_APP_CLIENT.View_Models
         }
 
         #region Properties
+
+        private string _chatTitle = "Default Title"; // Default value
+
+        public string ChatTitle
+        {
+            get { return _chatTitle; }
+            set
+            {
+                if (_chatTitle != value)
+                {
+                    _chatTitle = value;
+                    OnPropertyChanged(nameof(ChatTitle));
+                }
+            }
+        }
+
         public ObservableCollection<Member> ChatMembers
         {
             get { return _chatMembers; }
