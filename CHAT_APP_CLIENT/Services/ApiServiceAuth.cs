@@ -1,10 +1,7 @@
-﻿using Newtonsoft.Json;
-using SERVER_SIDE.Models.DTOModels;
-using System;
+﻿using SERVER_SIDE.Models.DTOModels;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CHAT_APP_CLIENT.Services
 {
@@ -56,17 +53,14 @@ namespace CHAT_APP_CLIENT.Services
             throw new Exception(errorContent);
         }
 
-
-
         public async Task LoginUser()
         {
             try
             {
                 var username = "user1";  // Example username
                 var password = "password123";  // Example password
-
-                // Hash the password before sending
-                var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+                
+                var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password); // Hash the password before sending
 
                 // Create a MemberLogin object with hashed password
                 var loginRequest = new MemberLogin
@@ -75,14 +69,11 @@ namespace CHAT_APP_CLIENT.Services
                     _passwordHash = hashedPassword
                 };
 
-                // Create an instance of ApiServiceAuth
-                var apiServiceAuth = new ApiServiceAuth();
+                var apiServiceAuth = new ApiServiceAuth(); // Create an instance of ApiServiceAuth
 
-                // Call LoginAsync with the MemberLogin object
-                string token = await apiServiceAuth.LoginAsync(loginRequest);
+                string token = await apiServiceAuth.LoginAsync(loginRequest); // Call LoginAsync with the MemberLogin object
 
-                // Use the token (e.g., store it for future requests or decoding)
-                Console.WriteLine("JWT Token: " + token);
+                Console.WriteLine("JWT Token: " + token); // Use the token (e.g., store it for future requests or decoding) and print on the console window
 
                 // Optionally decode the token (e.g., extracting claims from the payload)
                 var tokenParts = token.Split('.');
@@ -97,8 +88,7 @@ namespace CHAT_APP_CLIENT.Services
 
         public byte[] Base64UrlDecode(string base64Url)
         {
-            // Convert the Base64 URL-safe encoding to regular Base64 format
-            var base64 = base64Url.Replace('-', '+').Replace('_', '/');
+            var base64 = base64Url.Replace('-', '+').Replace('_', '/'); // Convert the Base64 URL-safe encoding to regular Base64 format
 
             // Add padding based on the length of the string (required for proper Base64 decoding)
             switch (base64.Length % 4)
@@ -107,8 +97,7 @@ namespace CHAT_APP_CLIENT.Services
                 case 3: base64 += "="; break;
             }
 
-            // Convert the Base64 string to a byte array and return it
-            return Convert.FromBase64String(base64);
+            return Convert.FromBase64String(base64); // Convert the Base64 string to a byte array and return it
         }
     }
 }

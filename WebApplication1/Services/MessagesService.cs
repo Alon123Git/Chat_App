@@ -46,7 +46,7 @@ namespace SERVER_SIDE.Services
         public async Task DeleteAllMessages()
         {
             var allMessages = await _dataBaseContext.messageEntity.ToListAsync();
-            if (allMessages.Any())
+            if (allMessages.Count != 0)
             {
                 _dataBaseContext.messageEntity.RemoveRange(allMessages);
                 await _dataBaseContext.SaveChangesAsync();

@@ -7,7 +7,7 @@ namespace SERVER_SIDE.Models
         [Key]
         public int _id { get; set; }
         public string _name { get; set; }
-        public Member _memberBelong {  get; set; }
+        public Member _memberBelong {  get; set; } // Member type variable
 
         public Chat(int id, string name, Member memberBelong)
         {

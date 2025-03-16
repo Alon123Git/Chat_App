@@ -13,9 +13,6 @@
             this._role = role;
         }
 
-        public ResponseModel()
-        {
-            
-        }
+        public ResponseModel() { }
     }
 }

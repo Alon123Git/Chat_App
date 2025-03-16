@@ -46,7 +46,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.ColumnSpan="2" Grid.RowSpan="5" Background="LightGreen">
-            <Button Name="MoveToWindow" Content="Navigate"
+            <Button Name="MoveToWindow" Content="chats page"
                 HorizontalAlignment="Left"
                 Background="Red"
                 VerticalAlignment="Top" Click="MoveToWindow_Click"/>

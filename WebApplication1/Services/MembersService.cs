@@ -98,7 +98,7 @@
             public async Task DeleteAllMembers()
             {
                 var allMembers = await _dataBaseContext.memberEntity.ToListAsync();
-                if (allMembers.Any())
+                if (allMembers.Count != 0)
                 {
                     _dataBaseContext.memberEntity.RemoveRange(allMembers);
                     await _dataBaseContext.SaveChangesAsync();

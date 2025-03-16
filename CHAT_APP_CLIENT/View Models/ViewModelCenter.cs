@@ -113,7 +113,7 @@ namespace CHAT_APP_CLIENT.View_Models
             try
             {
                 var chats = await _apiServiceChats.GetAllChatsAsync();
-                if (chats != null && chats.Any())
+                if (chats != null && chats.Count != 0)
                 {
                     foreach (var chat in chats)
                     {
@@ -345,20 +345,6 @@ namespace CHAT_APP_CLIENT.View_Models
 
         private async void OnClick_Register()
         {
-            //if (_selectedGender == "" && _selectedAge == 0)
-            //{
-            //    MessageBox.Show("No gender and age selected");
-            //}
-            //else if (_selectedGender == "")
-            //{
-            //    MessageBox.Show("No gender was selected");
-            //}
-            //else if (_selectedAge == 0)
-            //{
-            //    MessageBox.Show("No age was selected"); 
-            //}
-            //else if (!string.IsNullOrEmpty(TextBoxJoinOrLeaveChat))
-            //{
                 var newMember = new Member
                 {
                     _name = TextBoxJoinOrLeaveChat,
@@ -401,10 +387,6 @@ namespace CHAT_APP_CLIENT.View_Models
                 {
                     ErrorMessage = "Failed to add member: " + ex.Message;
                 }
-            //} else
-            //{
-            //    ErrorMessage = $"Input cannot exceed {maxCharsPerLine} characters.";
-            //}
         }
 
         private async void OnClick_Login()
@@ -433,10 +415,8 @@ namespace CHAT_APP_CLIENT.View_Models
                     var claims = DecodeJwtToken(_jwtToken); // Decode the JWT token to extract claims
 
                     // Check if required claims are present
-                    if (claims.ContainsKey("name") && claims.ContainsKey("role"))
+                    if (claims.TryGetValue("name", out string? username) && claims.ContainsKey("role"))
                     {
-                        // Extract specific claims (e.g., user ID, role)
-                        var username = claims["name"];
                         var role = claims["role"];
 
                         DisplayTextJoinChat = $"Logged in as {username} (Role: {role})"; // Update UI or perform actions based on claims

@@ -11,7 +11,7 @@ namespace CHAT_APP_CLIENT.Extensions
         private readonly Action<string> _executeWithString; // Action for commands with string parameter
         private readonly Func<bool> _canExecute; // CanExecute logic
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler? CanExecuteChanged;
 
         // Constructor for Action commands
         public Commands(Action execute, Func<bool> canExecute = null)
@@ -28,13 +28,13 @@ namespace CHAT_APP_CLIENT.Extensions
         }
 
         // Checks if the command can be executed
-        public bool CanExecute(object parameter)
+        public bool CanExecute(object? parameter)
         {
             return _canExecute == null || _canExecute();
         }
 
         // Executes the command based on the type of action defined
-        public void Execute(object parameter)
+        public void Execute(object? parameter)
         {
             if (_execute != null)
             {

@@ -9,11 +9,9 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container
-builder.Services.AddControllers();
+builder.Services.AddControllers(); // Add services to the container
 
-// Configure Swagger
-builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddEndpointsApiExplorer(); // Configure Swagger
 
 // For test auth in swagger
 builder.Services.AddSwaggerGen(c =>
@@ -38,12 +36,11 @@ builder.Services.AddSwaggerGen(c =>
                     Id = "Bearer"
                 }
             },
-            new string[] { }
+            Array.Empty<string>()
         }
     });
 });
 
-// Make sure to add this to load the configuration
 builder.Configuration.SetBasePath(Directory.GetCurrentDirectory());
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
@@ -52,8 +49,7 @@ builder.Services.AddScoped<MembersService>();
 builder.Services.AddScoped<MessagesService>();
 builder.Services.AddScoped<ChatsService>();
 
-// Configure SignalR
-builder.Services.AddSignalR();
+builder.Services.AddSignalR(); // Configure SignalR
 
 // Configure Entity Framework and SQL Server
 builder.Services.AddDbContext<DataBaseContext>(options =>
@@ -70,8 +66,8 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Configure JWT authentication
-var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:SecretKey"]);
+var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:SecretKey"]); // Configure JWT authentication
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -88,8 +84,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Build the app
-var app = builder.Build();
+var app = builder.Build(); // Build the app
 
 // Configure middleware
 app.UseCors("AllowAllOrigins"); // Apply CORS policy

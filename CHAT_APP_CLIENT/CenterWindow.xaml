@@ -43,7 +43,7 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Button Content="Chat"
+        <Button Content="main page"
                 Background="LightPink"
                 Click="Button_Click" />
         <Button Grid.Row="1"

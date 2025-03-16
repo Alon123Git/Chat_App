@@ -146,7 +146,6 @@ namespace CHAT_APP_CLIENT.View_Models
         }
 
         // Display all the messages that alreadt exist in the caht (in the data base)
-
         public async void LoadMessages()
         {
             try
@@ -232,7 +231,6 @@ namespace CHAT_APP_CLIENT.View_Models
                 {
                     _selectedAge = value;
                     OnPropertyChanged(nameof(SelectedMemberAge));
-                    // You can add additional logic here if necessary
                 }
             }
         }
@@ -520,16 +518,6 @@ namespace CHAT_APP_CLIENT.View_Models
             {
                 _selectedGender = "Female";
             }
-        }
-
-        private bool CanClick_MaleButton()
-        {
-            return !IsMaleButtonEnabled;  // Can execute if the male button is enabled
-        }
-
-        private bool CanClick_FemaleButton()
-        {
-            return !IsFemaleButtonEnabled;  // Can execute if the female button is enabled
         }
 
         public async void OnSelected_SelectedMemberAge()

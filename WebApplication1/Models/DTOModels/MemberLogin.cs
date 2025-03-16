@@ -18,9 +18,6 @@ namespace SERVER_SIDE.Models.DTOModels
             this._role = role;
         }
 
-        public MemberLogin()
-        {
-            
-        }
+        public MemberLogin() { }
     }
 }

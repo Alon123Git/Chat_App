@@ -3,6 +3,7 @@ using SERVER_SIDE.Models;
 
 namespace CHAT_APP_CLIENT.Services
 {
+    // class that hanle the SignalR operation
     public class SignalRService
     {
         private readonly HubConnection _connection; // Dependency injection for connect the SignalR from the server side

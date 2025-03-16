@@ -40,19 +40,16 @@ namespace SERVER_SIDE.Controllers
                 return BadRequest("Invalid request body.");
             }
 
-            // Validate credentials using the DTO
-            var member = _context.memberEntity.FirstOrDefault(u => u._name == loginRequest._name);
+            var member = _context.memberEntity.FirstOrDefault(u => u._name == loginRequest._name); // Validate credentials using the DTO
             if (member == null || !BCrypt.Net.BCrypt.Verify(loginRequest._passwordHash, member._passwordHash))
             {
                 return Unauthorized("Invalid username or password.");
             }
 
-            // Generate JWT
-            var token = GenerateJwtToken(member);
-
-            // Create and return the response
-            var response = new ResponseModel(token, member._name, member._role);
-            return Ok(response);
+            var token = GenerateJwtToken(member); // Generate JWT and store the JWT in a variable
+            
+            var response = new ResponseModel(token, member._name, member._role); // Create the response and wtor in a variable
+            return Ok(response); // Return the response
         }
 
         private string GenerateJwtToken(Member member)

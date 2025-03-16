@@ -21,8 +21,7 @@ namespace SERVER_SIDE.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllChats()
         {
-            // Await the asynchronous service method
-            var allChats = await _chatsService.GetChats();
+            var allChats = await _chatsService.GetChats(); // Await the asynchronous service method
             return Ok(allChats); // Return the resolved result
         }
 

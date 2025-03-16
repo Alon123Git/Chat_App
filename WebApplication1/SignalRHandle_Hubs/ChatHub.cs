@@ -7,7 +7,7 @@ namespace SERVER_SIDE.SignalRHandle_Hubs
     /// </summary>
     public class ChatHub : Hub
     {
-        // Methods for be able to connect with the client side
+        // Methods for be able to connect with the client side. Annonimus methods exept the last method
 
         //sends a message to all connected clients, using Clients.All
         public async Task SendMessage(string user, string message)
